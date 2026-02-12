@@ -15,18 +15,18 @@
 <div><b>Datumi:</b> 
 {{ $tour->start_date }} - {{ $tour->end_date }}
 </div>
-<p>{{ $tour->decription }}</p>
+<p>{{ $tour->description }}</p>
 <hr>
-@if(session('ok')) 
-<p style="color:green:"{{ sesion('ok') }}></p>
+@if(session('ok'))
+<p style="color:green;">{{ session('ok') }}></p>
 @endif
 <h2>Pieteikšanas</h2>
-<form method="POST" action="/tours/"{{ $tour->id }}/apply">
+<form method="POST" action="/tours/{{ $tour->id }}/apply">
 @csrf
 <div>
 <label>Vārds</label><br>
 <input type="text" name="name"value="{{ old('name') }}">
-@error('name') <div style="colored:red;">{{ $message }}</div>@enderror
+@error('name') <div style="color:red;">{{ $message }}</div>@enderror
 </div>
 <div>
     <label>E-pasts</label><br>
@@ -37,7 +37,7 @@
     <label>Telefons</label><br>
     <input type="text" name="phone" value="{{ old('phone') }}">
 </div>
-<button type="sumbit">Pieteikties</button>
+<button type="submit">Pieteikties</button>
 </form>
 </body>
 </html>

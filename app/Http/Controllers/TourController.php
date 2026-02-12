@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Tour;
@@ -33,6 +33,7 @@ $data = $request->validate([
 'phone'=>['nullable'],
 ]);
 
+
 DB::table('bookings')->insert([
 'tour_id'=> $tour->id,
 'name'=> $data['name'],
@@ -42,9 +43,30 @@ DB::table('bookings')->insert([
 'created_at' => now(),
 'updated_at' => now(),
 ]);
-return redirect('/tours/', $tour->id)
+return redirect('/tours/'. $tour->id)
 ->with('OK', 'Pieteikuma nosūtīts!');
 }
+public function bookings()
+{
+    $bookings = DB::table('bookings')
+    ->join('tours', 'bookings.tour_id', '=', 'tours.id')
+    ->select('bookings.*', 'tours.title as tour_title')
+    ->orderBy('bookings.created_at', 'desc')
+    ->get();
+    return view('admin.bookings', [
+        'bookings'=>$bookings
+    ]);
+    
+}
+
+public function done($id)
+{
+    DB::table('bookings')
+    ->where('id',$id)
+    ->update(['status'=>'done']);
+    return redirect('/admin/bookings');
+}
+
 }
 
 

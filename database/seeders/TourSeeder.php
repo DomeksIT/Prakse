@@ -34,6 +34,38 @@ public function run()
   'end_date'=>'2026-06-17',
   'description'=>'7 naktis viesnīcā ar all inclusive pakalpojumiem'
  ],
+  [
+  'title'=>'Ceļojums uz Itāliju',
+  'price'=> 3000,
+  'currency'=>'EUR',
+  'start_date'=>'2026-06-10',
+  'end_date'=>'2026-06-17',
+  'description'=>'7 naktis viesnīcā ar all inclusive pakalpojumiem'
+ ],
+  [
+  'title'=>'Ceļojums uz Helsinki',
+  'price'=> 3000,
+  'currency'=>'EUR',
+  'start_date'=>'2026-06-10',
+  'end_date'=>'2026-06-17',
+  'description'=>'7 naktis viesnīcā ar all inclusive pakalpojumiem'
+ ],
+  [
+  'title'=>'Ceļojums uz Stokholmu',
+  'price'=> 3000,
+  'currency'=>'EUR',
+  'start_date'=>'2026-06-10',
+  'end_date'=>'2026-06-17',
+  'description'=>'7 naktis viesnīcā ar all inclusive pakalpojumiem'
+ ],
+  [
+  'title'=>'Ceļojums uz Tokio',
+  'price'=> 3000,
+  'currency'=>'EUR',
+  'start_date'=>'2026-06-10',
+  'end_date'=>'2026-06-17',
+  'description'=>'7 naktis viesnīcā ar all inclusive pakalpojumiem'
+ ],
  ];
 foreach($tours as $tour){
   DB::table('tours')->insert([

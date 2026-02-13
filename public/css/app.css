@@ -1,0 +1,90 @@
+:root{
+    --bg:#070b14;
+    --card:rgba(255,255,255,.06);
+    --stroke:rgba(255,255,255,.10);
+    --text:rgba(255,255,255,.85);
+    --muted:rgba(255,255,255,.60);
+    --accent:#4ade80;
+}
+body{ background: var(--bg); color:var(--text);}
+.nav-glass{
+    background: rgba(10,18,32,0.62);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.hero{
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(900px 500px at 15% 10%, rgba(80,120,255,.30), transparent),
+                radial-gradient(900px 500px at 90% 30%, rgba(0,255,180,.18), transparent),
+                linear-gradient(180deg, #070b14, #070b14);
+}
+.hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background-image: url("/images/hero.png");
+    background-size: cover;
+    background-position: center;
+    opacity: .28;
+    mix-blend-mode: screen;
+    filter: saturate(1.1) contrast(1.05);
+}
+.hero .container{position:relative; z-index:1;}
+.badge-soft{
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.14);
+    color:#fff;
+}
+
+.btn-accent{
+    background: var(--accent);
+    border-color: var(--accent);
+    color:#062010;
+    font-weight: 700;
+}
+.btn-accent:hover{filter: brightness(.95);}
+.glass-card{
+    border-radius: 24px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.14);
+    box-shadow: 0 16px 60px rgba(0,0,0,.35);
+}
+.hero-stats{
+    display: flex; gap:14px; flex-wrap:wrap;
+}
+.hero-stats .stat{
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 16px;
+    padding: 10px 14px;
+}
+.hero-stats .num{ color:#fff; font-weight:800; font-size: 18px;}
+.hero-stats .lbl{ color:var(--muted); font-size:12px;}
+.card-tour{
+    border:1px solid rgba(255,255,255,.08);
+    border-radius: 22px;
+    overflow: hidden;
+    background: rgba(255,255,255,.04);
+    box-shadow: 0 10px 35px rgba(0,0,0,.28);
+    transition: .15s ease, box-shadow .15s ease;
+}
+.card-tour:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 18px 55px rgba(0,0,0,.38);
+}
+.price-badge{
+    position:absolute; top:14px; right:14px;
+    background: rgba(0,0,0,.55);
+    color:#fff;
+    padding: 6px 10px;
+    border-radius:999px;
+    font-weight: 800;
+    border:1px solid rgba(255,255,255,.16);
+}
+.footer{
+    background:#050812;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+.container{
+    max-width: 1200px;
+}
